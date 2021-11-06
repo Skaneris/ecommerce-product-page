@@ -15,10 +15,10 @@
         </div>
         <div class="quantity">
             <button @click="minus"><MinusSVG /></button>
-            <div class="count">{{ count }}</div>
-            <button @click="count++"><PlusSVG /></button>
+            <div class="count">{{ product.value }}</div>
+            <button @click="product.value++"><PlusSVG /></button>
         </div>
-        <div class="buttons"><button class="btn"><CartWightSVG /><span>Add to cart</span></button></div>
+        <div class="buttons"><button @click="toCart"><CartWightSVG /><span>Add to cart</span></button></div>
     </div>
 </template>
 
@@ -27,21 +27,43 @@ import Slider from './components/Slider.vue'
 import MinusSVG from './components/svg/MinusSVG.vue'
 import PlusSVG from './components/svg/PlusSVG.vue'
 import CartWightSVG from './components/svg/CartWightSVG.vue'
-import { mapMutations, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
-  name: 'App',
-  components: {
-      Slider, MinusSVG, PlusSVG, CartWightSVG
-  },
-  data() {
-      return {
-          count: 1
-      }
-  },
-  methods: {
-      minus() {
-          if(this.count > 1) this.count--
-      },
-  }
+    name: 'App',
+    components: {
+        Slider, MinusSVG, PlusSVG, CartWightSVG
+    },
+    data() {
+        return {
+            product: {
+                name: 'Fall Limited Edition Sneakers',
+                description: 'These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.',
+                price: '125.00',
+                discount: '50%',
+                oldPrice: '250.00',
+                value: 1
+            }
+        }
+    },
+    methods: {
+        minus() {
+            if(this.product.value > 1) this.product.value--
+        },
+        ...mapActions({
+            addToCart: 'addToCart',
+            getCart: 'getCartFromLocalStorage'
+        }),
+        toCart() {
+            const item = {
+                name: this.product.name,
+                price: this.product.price,
+                value: this.product.value
+            }
+            this.addToCart(item)
+        }
+    },
+    mounted() {
+        this.getCart()
+    }
 }
 </script>

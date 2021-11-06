@@ -1,2 +1,60 @@
+@import 'vars'
 .cart
-    
+    width: auto
+    background: #FFFFFF
+    position: absolute
+    top: 76px
+    left: 8px
+    right: 8px
+    z-index: 53
+    border-radius: 1rem
+    box-shadow: 0px 14px 20px 6px rgba(0, 0, 0, 0.2)
+    &__header
+        height: 70px
+        padding: 20px
+        font-size: 1.1rem
+        font-weight: 700
+        line-height: 30px
+        border-bottom: 1px solid $Gray_blue
+    &__body
+        width: 100%
+        min-height: 190px
+        position: relative
+    &__empty
+        width: 100%
+        padding: 20px
+        font-size: 1.1rem
+        font-weight: 700
+        color: $Gray_blue
+        display: flex
+        justify-content: center
+        align-items: center
+        position: absolute
+        top: 0
+        bottom: 0
+    &__items
+        padding: 20px
+        .buttons
+            padding: 20px 0 0 0
+            button
+                @extend %button
+    &__item
+        margin: 0 0 10px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        gap: 12px
+        &-image
+            flex: 0 0 50px
+            img
+                width: 100%
+        &-description
+            .count
+                display: flex
+        &-buttons
+            button
+                padding: 6px
+                background: none
+                border: none
+                outline: none
+                cursor: pointer

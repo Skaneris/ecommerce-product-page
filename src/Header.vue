@@ -18,14 +18,23 @@
                 </div>
             </div>
             <div class="header__right">
-                <button class="header__cart"><CartSVG /></button>
+                <button class="header__cart" @click="toggleCart">
+                    <CartSVG />
+                    <div v-if="cartValue" class="header__cart-value">{{ cartValue }}</div>
+                </button>
                 <button class="header__avatar">
                     <img src="./assets/images/image-avatar.png" alt="">
                 </button>
             </div>
         </div>
     </div>
-    <div class="overlay" :class="{_active: showSidebar, _hidden: !showSidebar}" @click="toggleSidebar"></div>
+    <transition name="fade">
+        <div v-if="showSidebar" class="overlay" @click="toggleSidebar"></div>
+    </transition>
+    <div v-if="showCart" class="overlay transparent" @click="toggleCart"></div>
+    <transition name="fade">
+        <Cart v-if="showCart" />
+    </transition>
 </template>
 
 <script>
@@ -33,27 +42,37 @@ import MenuSVG from './components/svg/MenuSVG.vue'
 import LogoSVG from './components/svg/LogoSVG.vue'
 import CartSVG from './components/svg/CartSVG.vue'
 import CloseSVG from './components/svg/CloseSVG.vue'
-import { mapMutations, mapGetters } from 'vuex'
+import Cart from './components/Cart.vue'
+import { mapGetters } from 'vuex'
 export default {
     name: 'Header',
     components: {
-        MenuSVG, LogoSVG, CartSVG, CloseSVG
+        MenuSVG, LogoSVG, CartSVG, CloseSVG, Cart
+    },
+    data() {
+        return {
+            showCart: false,
+            showSidebar: false
+        }
     },
     methods: {
-        ...mapMutations({
-            setShowSidebar: 'setShowSidebar'
-        }),
         toggleSidebar() {
-            this.setShowSidebar(!this.showSidebar)
+            this.showSidebar = !this.showSidebar
+        },
+        toggleCart() {
+            this.showCart = !this.showCart
         }
     },
     computed: {
         ...mapGetters({
-            showSidebar: 'getShowSidebar'
-        })
+            cartValue: 'getCartCount'
+        }),
+        blockedScroll() {
+            return this.showCart || this.showSidebar
+        }
     },
     watch: {
-        showSidebar(newVal) {
+        blockedScroll(newVal) {
             newVal ? document.body.classList.add('_blocked-scroll') : document.body.classList.remove('_blocked-scroll')
         }
     }
