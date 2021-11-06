@@ -2,7 +2,43 @@
 html
     font-size: $paragraph
 body
+    width: 100%
+    min-width: 280px
+    min-height: 100vh
     font-family: $FontFamily
     font-size: 1rem
+    overflow-x: hidden
+    &._blocked-scroll
+        overflow-y: hidden
 .container
-    
+    width: 100%
+    padding: 0 20px
+.overlay
+    width: 100%
+    height: 100vh
+    background: rgba(0, 0, 0, 0.75)
+    opacity: 0
+    position: fixed
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    z-index: 100
+    &._active
+        display: block
+        opacity: 1
+        cursor: pointer
+        animation: overlay 0.4s linear
+    &._hidden
+        animation: overlay 0.6s linear reverse forwards
+        display: none
+@keyframes overlay
+    0%
+        display: none
+        opacity: 0
+    1%
+        display: block
+        opacity: 0
+    100%
+        opacity: 1
+        
