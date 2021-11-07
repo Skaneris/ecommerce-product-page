@@ -37,7 +37,7 @@ Mobile:
 
 ### Links
 
-- Solution URL: [E-commerce product page](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6/hub/ecommerce-product-page-i---xRuSl)
+- Solution URL: [E-commerce product page](https://www.frontendmentor.io/solutions/html5-sass-flexbox-mobilefirst-vue3-vuex-NFTtprT_A)
 - Live Site URL: [https://skaneris.github.io/ecommerce-product-page/](https://skaneris.github.io/ecommerce-product-page/)
 
 ## My process
