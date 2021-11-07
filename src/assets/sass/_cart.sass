@@ -54,9 +54,19 @@
             flex: 0 0 50px
             img
                 width: 100%
+                border-radius: 0.3rem
         &-description
+            font-size: 0.9rem
+            color: $Dark_gray_blue
+            line-height: 1
+            .name
+                margin: 0 0 10px 0
             .count
                 display: flex
+                grid-gap: 6px
+                .total
+                    font-weight: 700
+                    color: #000
         &-buttons
             button
                 padding: 6px
@@ -64,3 +74,6 @@
                 border: none
                 outline: none
                 cursor: pointer
+        @media screen and ( min-width: $breackPoint )
+            &-description
+                font-size: 1rem

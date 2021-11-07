@@ -34,7 +34,7 @@
     <transition name="fade">
         <div v-if="showSidebar" class="overlay" @click="toggleSidebar"></div>
     </transition>
-    <div v-if="showCart" class="overlay transparent" @click="toggleCart"></div>
+    <div v-if="showCart" class="overlay-transparent" @click="toggleCart"></div>
 </template>
 
 <script>
