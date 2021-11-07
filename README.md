@@ -38,7 +38,7 @@ Mobile:
 ### Links
 
 - Solution URL: [E-commerce product page](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6/hub/ecommerce-product-page-i---xRuSl)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://skaneris.github.io/ecommerce-product-page/](https://skaneris.github.io/ecommerce-product-page/)
 
 ## My process
 
