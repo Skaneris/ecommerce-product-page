@@ -1,9 +1,7 @@
 <template>
     <div class="image">
         <div class="image__body">
-            <transition name="fade">
-                <img :src="activeIMG.src" alt="">
-            </transition>
+            <img :src="activeIMG.src" alt="">
             <button @click="preview" class="image__nav prev"><PreviosSVG /></button>
             <button @click="next" class="image__nav next"><NextSVG /></button>
         </div>
