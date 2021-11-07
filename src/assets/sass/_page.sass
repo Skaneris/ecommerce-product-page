@@ -1,15 +1,22 @@
 @import 'vars'
 .image
     width: 100%
-    @media screen and ( min-width: $breackPoint )
+    // @media screen and ( min-width: $breackPoint )
+    @media screen and ( min-width: 520px )
         width: 500px
         margin: 0 auto
+        padding: 40px 0 0 0
+        border-radius: 20px
+        overflow: hidden
+    @media screen and ( min-width: $breackPoint )
+        padding: 0
     @media screen and ( min-width: 989px )
         width: auto
         margin: 0
-        flex: 0 1 466px
-        border-radius: 20px
-        overflow: hidden
+        padding: 0 50px
+        flex: 0 0 50%
+    @media screen and ( min-width: 1300px )
+        padding: 0 70px 0 60px
     &__body
         position: relative
         z-index: 1
@@ -21,7 +28,7 @@
             width: 100%
             object-fit: cover
             cursor: pointer
-            @media screen and ( min-width: $breackPoint )
+            @media screen and ( min-width: 520px )
                 border-radius: 20px
     &__nav
         width: 42px
@@ -123,13 +130,38 @@
             @extend %button
             gap: 10px
             box-shadow: 0 6px 10px 4px rgba(0, 0, 0, .2)
+    @media screen and ( min-width: 520px )
+        width: 500px
+        margin: 0 auto
     @media screen and ( min-width: $breackPoint )
-        padding: 0 40px 0 80px
-        flex: 1 0 50%
+        flex: 0 0 50%
         display: flex
         justify-content: space-between
         flex-wrap: wrap
         .desc, .price, h1, h2
             flex: 0 0 100%
-        .quantity, .buttons
-            flex: 0 1 45%
+        .quantity
+            flex: 0 1 35%
+        .buttons
+            flex: 0 1 60%
+        h1
+            margin: 0 0 30px 0
+            font-size: 2.4rem
+            line-height: 1.2
+        h2
+            font-size: 1.1rem
+        .desc
+            margin: 0 0 30px 0
+        .price
+            margin: 0 0 46px 0
+            flex-direction: column
+            align-items: flex-start
+            grid-gap: 10px
+    @media screen and ( min-width: 1200px )
+        h1
+            margin: 0 0 40px 0
+            font-size: 3rem
+        h2
+            font-size: 1.2rem
+    @media screen and ( min-width: 1300px )
+        padding: 0 60px 0 70px
