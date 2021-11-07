@@ -7,7 +7,7 @@
             <transition name="fade" mode="out-in">
             <div v-if="cart.length" class="cart__items">
                 <CartItem v-for="product of cart" :item="product" :key="product.name" />
-                <div class="buttons"><button><span>Add to cart</span></button></div>
+                <div class="buttons"><button><span>Checkout</span></button></div>
             </div>
             <div v-else class="cart__empty">
                 Your cart is empty.

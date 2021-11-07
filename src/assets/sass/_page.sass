@@ -1,12 +1,28 @@
 @import 'vars'
 .image
     width: 100%
+    @media screen and ( min-width: $breackPoint )
+        width: 500px
+        margin: 0 auto
+    @media screen and ( min-width: 989px )
+        width: auto
+        margin: 0
+        flex: 0 1 466px
+        border-radius: 20px
+        overflow: hidden
     &__body
         position: relative
         z-index: 1
+        @media screen and ( min-width: $breackPoint )
+            &:hover
+                .image__nav
+                    opacity: 1
         img
             width: 100%
             object-fit: cover
+            cursor: pointer
+            @media screen and ( min-width: $breackPoint )
+                border-radius: 20px
     &__nav
         width: 42px
         height: 42px
@@ -21,18 +37,28 @@
             position: absolute
             top: 50%
             transform: translateY(-50%)
+            cursor: pointer
         &.prev
             left: 20px
         &.next
             right: 20px
+        @media screen and ( min-width: $breackPoint )
+            opacity: 0
+            transition: 0.3s
     &__thumbwrapper
         display: none
-        @media screen and ( min-width: 740px )
+        @media screen and ( min-width: $breackPoint )
+            padding: 5px 0
             display: flex
             justify-content: space-between
     &__thumb
-        border-radius: 8px
+        padding: 15px 0
+        flex: 0 1 20%
+        border-radius: 16px
         overflow: hidden
+        img
+            width: 100%
+            border-radius: 16px
 .info
     margin: 0 0 40px 0
     padding: 20px
@@ -87,6 +113,7 @@
             background: none
             border: none
             line-height: 20px
+            cursor: pointer
         .count
             font-size: 1.1rem
             font-weight: 700
@@ -96,3 +123,13 @@
             @extend %button
             gap: 10px
             box-shadow: 0 6px 10px 4px rgba(0, 0, 0, .2)
+    @media screen and ( min-width: $breackPoint )
+        padding: 0 40px 0 80px
+        flex: 1 0 50%
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        .desc, .price, h1, h2
+            flex: 0 0 100%
+        .quantity, .buttons
+            flex: 0 1 45%

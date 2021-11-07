@@ -10,9 +10,22 @@ body
     overflow-x: hidden
     &._blocked-scroll
         overflow-y: hidden
+        padding: 0 17px 0 0
+.main
+    @media screen and ( min-width: $breackPoint )
+        padding: 88px 50px 0 50px
+    @media screen and ( min-width: 989px ) 
+        max-width: $Desktop
+        margin: 0 auto    
+        display: flex
+        justify-content: flex-start
+        align-items: center
 .container
     width: 100%
     padding: 0 20px
+    @media screen and ( min-width: $breackPoint )
+        max-width: $Desktop
+        margin: 0 auto
 .overlay
     width: 100%
     height: 100vh

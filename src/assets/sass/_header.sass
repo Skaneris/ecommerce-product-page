@@ -6,6 +6,8 @@
     position: sticky
     top: 0
     z-index: 2
+    @media screen and ( min-width: $breackPoint )
+        position: relative
     &::after
         content: ''
         display: block
@@ -24,6 +26,12 @@
         display: flex
         justify-content: space-between
         align-items: center
+        position: relative
+        @media screen and ( min-width: $breackPoint )
+            height: 110px
+            border-bottom: 1px solid $Gray_blue
+            position: relative
+            z-index: 100
     &__left
         display: flex
         align-items: center
@@ -38,6 +46,8 @@
         cursor: pointer
         position: relative
         z-index: 53
+        @media screen and ( min-width: $breackPoint )
+            display: none
     &__logo
         position: relative
         z-index: 53
@@ -63,6 +73,23 @@
                     border: none
         &._active
             left: 0
+        @media screen and ( min-width: $breackPoint )
+            width: auto
+            height: auto
+            padding: 0
+            position: static
+            left: auto
+            top: auto
+            bottom: auto
+            ul
+                margin: 0 0 0 20px
+                li
+                    margin: 0 15px
+                    display: inline-block
+                    button
+                        font-size: 1rem
+                        font-weight: 400
+                        cursor: pointer
     &__nave-close
         margin: 0 0 50px 0
         display: inline-block
@@ -70,6 +97,8 @@
         transition: 0.3s
         &:hover
             transform: rotate(-360deg)
+        @media screen and ( min-width: $breackPoint )
+            display: none
     &__right
         display: flex
         align-items: center
@@ -102,3 +131,21 @@
         outline: none
         img
             max-width: 100%
+        @media screen and ( min-width: $breackPoint )
+            width: 50px
+            height: 50px
+            max-width: 50px
+            padding: 0
+            display: block
+            cursor: pointer
+            display: flex
+            justify-content: center
+            align-items: center
+            overflow: hidden
+            img
+                width: 50px
+                height: 50px
+                object-fit: cover
+            &:hover
+                border: 2px solid $Orange
+                    

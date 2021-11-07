@@ -4,11 +4,16 @@
     background: #FFFFFF
     position: absolute
     top: 76px
-    left: 8px
-    right: 8px
+    left: 0px
+    right: 0px
     z-index: 53
     border-radius: 1rem
     box-shadow: 0px 14px 20px 6px rgba(0, 0, 0, 0.2)
+    @media screen and ( min-width: $breackPoint )
+        width: 362px
+        top: 100px
+        left: auto
+        z-index: 103
     &__header
         height: 70px
         padding: 20px

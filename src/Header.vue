@@ -26,15 +26,15 @@
                     <img src="./assets/images/image-avatar.png" alt="">
                 </button>
             </div>
+            <transition name="fade">
+                <Cart v-if="showCart" />
+            </transition>
         </div>
     </div>
     <transition name="fade">
         <div v-if="showSidebar" class="overlay" @click="toggleSidebar"></div>
     </transition>
     <div v-if="showCart" class="overlay transparent" @click="toggleCart"></div>
-    <transition name="fade">
-        <Cart v-if="showCart" />
-    </transition>
 </template>
 
 <script>
@@ -73,7 +73,16 @@ export default {
     },
     watch: {
         blockedScroll(newVal) {
-            newVal ? document.body.classList.add('_blocked-scroll') : document.body.classList.remove('_blocked-scroll')
+            if(newVal) {
+                const fullWidth = window.innerWidth
+                const docWidth = document.documentElement.clientWidth
+                const scrollbar = fullWidth - docWidth
+                document.body.classList.add('_blocked-scroll')
+                document.body.style.paddingRight = scrollbar + 'px'
+            } else {
+                document.body.classList.remove('_blocked-scroll')
+                document.body.removeAttribute('style')
+            }
         }
     }
 }
