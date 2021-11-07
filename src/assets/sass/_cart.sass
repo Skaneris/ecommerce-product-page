@@ -74,6 +74,10 @@
                 border: none
                 outline: none
                 cursor: pointer
+                &:hover
+                    svg path
+                        transition: 0.3s
+                        fill: lighten(#000, 40)
         @media screen and ( min-width: $breackPoint )
             &-description
                 font-size: 1rem
