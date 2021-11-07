@@ -1,15 +1,25 @@
 <template>
     <div class="image">
         <div class="image__body">
-            <img :src="activeIMG.src" alt="">
+            <img :src="activeIMG.src" alt="" @click="fullScreen = true">
             <button @click="preview" class="image__nav prev"><PreviosSVG /></button>
             <button @click="next" class="image__nav next"><NextSVG /></button>
         </div>
         <div class="image__thumbwrapper">
-            <div v-for="(image, idx) of images" class="image__thumb" :key="image.src">
-                <img :src="image.thumb" @click="setImage(idx)" alt="">
+            <div v-for="(image, idx) of images" class="image__thumb" 
+                :class="{_active: activeIMG.idx === idx}"
+                @click="setImage(idx)" 
+                :key="image.src">
+                <img :src="image.thumb" alt="">
             </div>
         </div>
+        <transition name="fade">
+            <div v-if="fullScreen" class="overlay_slider" @click="fullScreen = false">
+                <div class="fullscreen">
+                    
+                </div>
+            </div>
+        </transition>
     </div>
 </template>
 <script>
@@ -53,7 +63,8 @@ export default {
                     src: src4,
                     thumb: thumb4
                 },
-            ]
+            ],
+            fullScreen: false
         }
     },
     methods: {
